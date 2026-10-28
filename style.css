@@ -1,4 +1,6 @@
 .opening {
+  isolation: isolate;
+  background-color: #111;
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -6,14 +8,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background:  #171717;
   color: #ffffff;
   text-align: center;
-  transition: opasity ls ease;
+  transition: opasity 1s ease,visibility 1s ease;
   width: 100%;
   height: 100vh;
-  height: 100vh;
+  padding: 20px;
   box-sizing: border-box;
+  gap: 20px;
+}
+.opening::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:url("/Users/yura/projects/my-profile/images/IMG_8318.JPG");
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%)
 }
 .opening-label {
   font-size: 11px;
@@ -22,17 +34,18 @@
 }
 .opening h1 {
   font-size: clamp(30px, 8vw, 58px);
-  font-weight: 400px;
+  font-weight: 400;
   letter-spacing: 5px;
-  margin: 24px 0 12px;
+  margin: 10px 0;
 }
 .opening-message {
   color: #c7c7c7;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 2px;
 }
 .enter-button {
-  margin-top: 55px;
+  display: inline-block;
+  margin-top: 35px;
   padding: 12px 24px;
   color: white;
   background: transparent;
@@ -104,4 +117,163 @@ a {
 }
 a:hover {
   opacity: 0.7;
+}
+.hidden{
+  display: none !important;
+}
+#enter-toggle:checked ~ .opening{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#profile{
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  visibility: hidden;
+  transition: opacity 1s ease,visibility 1s ease;
+}
+#enter-toggle:checked ~ #profile{
+  opacity: 1;
+  visibility: visible;
+}
+.profile-top{
+  box-sizing: border-box;
+  min-height: 300px;
+  padding: 60px 8%;
+  background-color: #d98e91;
+  color: white;
+  text-align: center;
+}
+.profile-top h2{
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+.profile-background{
+  position: relative;
+  isolation: isolate;
+  padding: 30px 8%;
+  background-color: #f5e7e5;
+}
+.profile-background::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url(images/EF8267BD-9AAA-47D0-9AF1-E64DCAAF04DD.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  filter: saturate(65%) contrast(85%);
+}
+.profile-background .profile-section{
+  position: relative;
+}
+.profile-background h2{
+  color: #c77f83;
+  border-bottom: 1px solid #e2b3b3;
+}
+.skill-section{
+  position: relative;
+  isolation: absolute;
+  padding: 30px 8%;
+  background-color: #f5e7e5;
+}
+.skill-section > * {
+  position: relative;
+  z-index: 1;
+}
+.skill-section::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("images/IMG_8782.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  filter: saturate(65%) contrast(85%);
+}
+.photo-garallery{
+  width: 100%;
+  max-width: 650px;
+  margin: 30px auto;
+}
+.main-photos{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #f5e7e5;
+}
+.main-photos input{
+  display: none;
+}
+.main-photo{
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+#photo1:checked ~ .main-photo1,
+#photo2:checked ~ .main-photo2,
+#photo3:checked ~ .main-photo3,
+#photo4:checked ~ .main-photo4{
+  display: block;
+}
+.thumbnail-list{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+.thumbnail-list label{
+  width: 30%;
+  max-width: 150px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.thumbnail-list img{
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+}
+.thumbnail-list label:hover{
+  opacity: 1;
+}
+.photo-marquee{
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  background-color: #f5e7e5;
+}
+.photo-track{
+  display: flex;
+  width: max-content;
+  gap: 15px;
+  animation: photo-scroll 30s linear infinite;
+}
+.photo-track img{
+  display: block;
+  height: 150px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+  border-radius: 8px;
+}
+@keyframes photo-scroll{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
 }
