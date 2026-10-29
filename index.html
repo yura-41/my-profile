@@ -19,12 +19,12 @@
     <p class="opening-message">
     A story yet to be told
     </p>
-    <label for="enter-toggle" class="enter-button">
+    <label for="enter-toggle" class="enter-button" id="enter-button">
     TAP TO ENTER
     </label>
     <div id="movie" class="movie hidden"></div>
   </div>
-<main id="profile"></main>
+<main id="profile" class="hidden"></main>
   <section class="profile-top">
     <h3>おはようございます！</h3>
     <h3>また觀たいと思ってもらえるよな作品を届けられる役者をめざしています。</h3>
@@ -157,12 +157,6 @@
     </a>
   </p>
 </main>
-<script>
-  document.getElementById("enter-button").addEventListener("click", () => {
-    document.getElementById("profile").scrollIntoView({
-      behavior: "smooth"
-    });
-  });
-</script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -121,11 +121,6 @@ a:hover {
 .hidden{
   display: none !important;
 }
-#enter-toggle:checked ~ .opening{
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
 #profile{
   width: 100%;
   max-width: none;
@@ -134,10 +129,6 @@ a:hover {
   box-sizing: border-box;
   visibility: hidden;
   transition: opacity 1s ease,visibility 1s ease;
-}
-#enter-toggle:checked ~ #profile{
-  opacity: 1;
-  visibility: visible;
 }
 .profile-top{
   box-sizing: border-box;
@@ -276,4 +267,31 @@ a:hover {
   to{
     transform: translateX(-50%);
   }
+}
+.movie{
+  width: 100%;
+  max-width: 100%;
+}
+.movie video{
+  display: block;
+  width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+}
+#movie{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 90%;
+  max-width: 960px;
+  background: black;
+}
+#movie video{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  object-fit: contain;
 }
