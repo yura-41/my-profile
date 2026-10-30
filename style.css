@@ -22,7 +22,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image:url("/Users/yura/projects/my-profile/images/IMG_8318.JPG");
+  background-image:url("./images/IMG_8318.JPG");
   background-size: cover;
   background-position: center;
   filter: grayscale(100%)
